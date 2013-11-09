@@ -1,5 +1,5 @@
-# Author: Robert Banks
-# Id #: 121-00-4826
+# Author: Robert Banks Eugene Mammie
+
 
 import sys                                  # to parse the input
 
@@ -14,7 +14,7 @@ def strip_file(f):
                          
     return (c_list)
 
-#function to open a file and strip the newline chars and close the file.
+# function to open a file and strip the newline chars and close the file.
 def op_file(a_file):
     
     file1 = open(a_file, 'r')
@@ -23,6 +23,25 @@ def op_file(a_file):
     return (str_file)
 
 
+# function to create a dictionary to store blocks; 
+# keys are the size and unique id; values are the current positions.
+def create_dictionary(input_list):
+
+	dct = {}
+	i = 0
+	id = 0
+	for item in input_list:
+		if i != 0:
+			tup = (int(item[0]), int(item[2]), id)
+			val = (int(item[4]), int(item[6]))
+			dct[tup] = val
+			id = id + 1
+	
+		else:
+			i = i + 1
+	return (dct)
+	
+	
 class Puzzle:
     def __init__(self, tray_size, blocks):
         self.t_size = tray_size
@@ -43,14 +62,6 @@ gofile = str(sys.argv[3])
 A = op_file(confile)
 B = op_file(gofile)
 
-L = []
-print A
-for x in A:
-    tup = (int(x[0]),int(x[2]))
-    L.append(tup)
-print L
-
-#p_type = Puzzle(A[0],A[1:])
-#print p_type.t_size
-#print p_type.blk    
-
+block_dictionary = create_dictionary(A)
+print block_dictionary
+ 
