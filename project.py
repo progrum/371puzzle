@@ -2,6 +2,7 @@
 
 
 import sys                                  # to parse the input
+from operator import itemgetter, attrgetter	# to sort the tuples
 
 # This function strips the newline char from each line in the file,
 # and appends each line into a list.
@@ -42,6 +43,12 @@ def create_dictionary(input_list):
 	return (dct)
 	
 	
+# Function to sort the list of tuples.
+def create_list(input_dict):
+
+	dict_list = sorted(input_dict.keys(), key = itemgetter(0, 1, 2))
+	return (dict_list)
+	
 class Puzzle:
     def __init__(self, tray_size, blocks):
         self.t_size = tray_size
@@ -63,5 +70,6 @@ A = op_file(confile)
 B = op_file(gofile)
 
 block_dictionary = create_dictionary(A)
+block_list = create_list(block_dictionary)
 print block_dictionary
- 
+print block_list
