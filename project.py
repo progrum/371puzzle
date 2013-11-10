@@ -50,7 +50,7 @@ def create_list(input_dict):
 	return (dict_list)
 	
 	
-# Note: Extend Puzzle class to handle block dictionary and block list
+# Note: Extend Puzzle class to handle block dictionary and block list.
 class Puzzle:
     def __init__(self, tray_size, blocks):
         self.t_size = tray_size
