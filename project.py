@@ -1,4 +1,4 @@
-# Author: Robert Banks and Eugene Mammie
+# Authors: Robert Banks and Eugene Mammie
 
 
 import sys                                  # to parse the input
