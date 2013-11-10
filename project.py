@@ -1,4 +1,4 @@
-# Author: Robert Banks Eugene Mammie
+# Author: Robert Banks and Eugene Mammie
 
 
 import sys                                  # to parse the input
@@ -8,12 +8,12 @@ from operator import itemgetter, attrgetter	# to sort the tuples
 # and appends each line into a list.
 def strip_file(f):
     
-    c_list = []                             
+    line_list = []                             
     for line in f.readlines():
         line = line.rstrip('\n')
-        c_list.append(line)
+        line_list.append(line)
                          
-    return (c_list)
+    return (line_list)
 
 # function to open a file and strip the newline chars and close the file.
 def op_file(a_file):
@@ -49,6 +49,8 @@ def create_list(input_dict):
 	dict_list = sorted(input_dict.keys(), key = itemgetter(0, 1, 2))
 	return (dict_list)
 	
+	
+# Note: Extend Puzzle class to handle block dictionary and block list
 class Puzzle:
     def __init__(self, tray_size, blocks):
         self.t_size = tray_size
