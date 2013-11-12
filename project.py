@@ -46,7 +46,7 @@ def create_dictionary(input_list):
 # Function to sort the list of tuples.
 def create_list(input_dict):
 
-	dict_list = sorted(input_dict.keys(), key = itemgetter(0, 1, 2))
+	dict_list = sorted(input_dict.values(), key = itemgetter(0, 1))
 	return (dict_list)
 	
 	
