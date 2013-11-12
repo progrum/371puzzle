@@ -43,17 +43,17 @@ def create_dictionary(input_list):
 	return (dct)
 	
 	
-# Function to sort the list of tuples.
+# Function to sort the list of tuples, by position.
 def create_list(input_dict):
 
-	dict_list = sorted(input_dict.values(), key = itemgetter(0, 1))
+	dict_list = sorted([(value,key) for (key,value) in input_dict.items()])
+	dict_list = [(key, value) for (value, key) in dict_list]	
 	return (dict_list)
 	
 	
 # Note: Extend Puzzle class to handle block dictionary and block list.
 class Puzzle:
-    def __init__(self, tray_size, blocks):
-        self.t_size = tray_size
+    def __init__(self, blocks):
         self.blk = blocks
 
     
