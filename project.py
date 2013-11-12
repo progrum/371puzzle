@@ -2,7 +2,7 @@
 
 
 import sys                                  # to parse the input
-from operator import itemgetter, attrgetter	# to sort the tuples.
+from operator import itemgetter, attrgetter	# to sort the tuples
 
 # This function strips the newline char from each line in the file,
 # and appends each line into a list.
