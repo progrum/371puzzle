@@ -50,6 +50,31 @@ def create_list(input_dict):
 	dict_list = [key for (value, key) in dict_list]	
 	return (dict_list)
 	
+
+# Function to perform binary search on sorted list of dictionary keys; sorted by position.
+# NOTE: Augment for finding in dictionary...
+def binary_search(dict_list, key, imin, imax):
+
+  # test if array is empty
+  if (imax < imin):
+    # set is empty, so return value showing not found
+    return (False)
+  else:
+      # calculate midpoint to cut set in half
+      imid = (imin + imax) / 2;
+ 
+      # three-way comparison
+      if (A[imid] > key):
+        # key is in lower subset
+        return binary_search(A, key, imin, imid-1);
+      elif (A[imid] < key):
+        # key is in upper subset
+        return binary_search(A, key, imid+1, imax);
+      else:
+        # key has been found
+        return imid;	
+	
+	
 	
 # Note: Extend Puzzle class to handle block dictionary and block list.
 class Puzzle:
