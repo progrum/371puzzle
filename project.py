@@ -47,7 +47,7 @@ def create_dictionary(input_list):
 def create_list(input_dict):
 
 	dict_list = sorted([(value,key) for (key,value) in input_dict.items()])
-	dict_list = [(key, value) for (value, key) in dict_list]	
+	dict_list = [key for (value, key) in dict_list]	
 	return (dict_list)
 	
 	
