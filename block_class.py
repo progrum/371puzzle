@@ -1,34 +1,41 @@
+# Block Class to create Block Instances.
 class Block:
+
+	# Constructor to initiate the block object.
 	def __init__(self, size, position):
 		self.size = size
 		self.position = position
 		
+	# Method to return the position of the block.
 	def block_position(self):
 		return self.position
-		
+	
+	# Method to return the size of the block.
 	def block_size(self):
 		return self.size
 		
+	# Str method  for the block object.
 	def __str__(self):
 		size_string = str(self.size)
 		position_string = str(self.position)
 		return 'Size:'+size_string+', Position:'+position_string
 
-	# to move the block
+	# Method to move the block, x = rows, y = columns.
 	def set_position(self, x, y):
-		self.position = [self.position[0] + x, self.position[1] + y]		# x = rows, y = columns
+		self.position = [self.position[0] + x, self.position[1] + y]
 	
-	# to move block to the right
+	# Method to move block to the right.
 	def move_right(self):
 		self.set_position(1, 0)
 		
 		
 		
 		
-		
+# Code to test the block class.
 A = Block((4,5), [0,0])
 print A
 A.set_position(1,2)
 print A
 A.move_right()
 print A
+print A.size
