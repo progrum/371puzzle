@@ -74,8 +74,7 @@ def binary_search(dict_list, key, imin, imax):
 			# key has been found
 			return imid;	
 	
-	
-	
+		
 # Prototype Class Tray; used for testing main
 #class Tray:
 #    def __init__(self, t_size, blk_list, blk_dict):
