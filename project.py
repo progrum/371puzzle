@@ -76,16 +76,6 @@ def binary_search(dict_list, key, imin, imax):
 	
 	
 	
-# Note: Extend Puzzle class to handle block dictionary and block list.
-class Puzzle:
-    def __init__(self, blocks):
-        self.block_list = blocks
-	
-	def __str__(self):
-		puzstring = str(self.block_list)
-		return 'List of Blocks: '+puzstring
-	
-	
 # Prototype Class Tray; used for testing main
 #class Tray:
 #    def __init__(self, t_size, blk_list, blk_dict):
