@@ -1,8 +1,4 @@
-# Note: Extend Puzzle class to handle block dictionary and block list.
-class Puzzle:
-    def __init__(self, blocks):
-        self.block_list = blocks
+# Note: Function to use Tray class and Block class to perform algorithm
+def Puzzle(tray object, block object list)
 	
-	def __str__(self):
-		puzstring = str(self.block_list)
-		return 'List of Blocks: '+puzstring
+
