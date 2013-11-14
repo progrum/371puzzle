@@ -1,9 +1,10 @@
 class Tray:
-    def __init__(self,length,width,numOfBlks):
+    def __init__(self, size, numOfBlks, listOfBlks ):
         #attributes of a Tray Object
-        self.length = length #getLength()
-        self.width = width   #getWidth() 
+        self.length = size[1] #getLength(), columns
+        self.width = size[0]   #getWidth(), rows 
         self.numOfBlks = numOfBlks
+		self.listOfBlks = listOfBlks  #new: getList of block objects
         self.matrix = self.matrix()
         
     def length(self):
