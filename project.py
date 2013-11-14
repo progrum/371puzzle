@@ -55,33 +55,63 @@ def create_list(input_dict):
 # NOTE: Augment for finding in dictionary...
 def binary_search(dict_list, key, imin, imax):
 
-  # test if array is empty
-  if (imax < imin):
-    # set is empty, so return value showing not found
-    return (False)
-  else:
-      # calculate midpoint to cut set in half
-      imid = (imin + imax) / 2;
+	# test if array is empty
+	if (imax < imin):
+		# set is empty, so return value showing not found
+		return (False)
+	else:
+		# calculate midpoint to cut set in half
+		imid = (imin + imax) / 2;
  
-      # three-way comparison
-      if (A[imid] > key):
-        # key is in lower subset
-        return binary_search(A, key, imin, imid-1);
-      elif (A[imid] < key):
-        # key is in upper subset
-        return binary_search(A, key, imid+1, imax);
-      else:
-        # key has been found
-        return imid;	
+		# three-way comparison
+		if (A[imid] > key):
+			# key is in lower subset
+			return binary_search(A, key, imin, imid-1);
+		elif (A[imid] < key):
+			# key is in upper subset
+			return binary_search(A, key, imid+1, imax);
+		else:
+			# key has been found
+			return imid;	
 	
 	
 	
 # Note: Extend Puzzle class to handle block dictionary and block list.
 class Puzzle:
     def __init__(self, blocks):
-        self.blk = blocks
+        self.block_list = blocks
+	
+	def __str__(self):
+		puzstring = str(self.block_list)
+		return 'List of Blocks: '+puzstring
+	
+	
+# Prototype Class Tray; used for testing main
+#class Tray:
+#    def __init__(self, t_size, blk_list, blk_dict):
+#        self.size = t_size
+#        self.blk_list = blk_list
+#        self.blk_dict = blk_dict
+#
+#   def __str__(self):
+#        string = self.size
+#        return 'Tray is size'+' '+str(string)
 
-    
+class Block:
+	def __init__(self, size, position):
+		self.size = size
+		self.position = position
+		
+	def block_position(self):
+		return self.position
+		
+	def block_size(self):
+		return self.size
+		
+	def __str__(self):
+		size_string = str(self.size)
+		position_string = str(self.position)
+		return 'Size:'+size_string+', Position:'+position_string
 
 
 
@@ -100,3 +130,13 @@ block_dictionary = create_dictionary(A)
 block_list = create_list(block_dictionary)
 print block_dictionary
 print block_list
+
+
+#print A[0][2]
+#C = Tray((int(A[0][0]),int(A[0][2])), block_list, block_dictionary)
+#print C
+
+# Input size as a tuple, to avoid accidental changes.
+#D = [Block((1,2), [0,0]), Block((2,3), [3,5])]
+#E = Puzzle(D)
+#print 'Puzzle class: ', E
