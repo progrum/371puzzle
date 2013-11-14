@@ -73,3 +73,20 @@ def binary_search(dict_list, key, imin, imax):
 		else:
 			# key has been found
 			return imid;	
+			
+
+def move_block(Tray, Block, Direction):
+	# move the block
+	if (Direction == 'left'):
+		Block.
+		
+	if (Direction == 'right'):
+		do
+	
+	if (Direction == 'up'):
+		do
+		
+	if (Direction == 'down'):
+		do
+def free_space(Tray, Block):
+	# check to make sure lies inside the boundary of the tray configuration
