@@ -17,17 +17,18 @@ class Block:
 	# to move the block
 	def set_position(self, x, y):
 		self.position = [self.position[0] + x, self.position[1] + y]		# x = rows, y = columns
-		
-	#def move_right(self):
-	#	set_position(1, 0)
-		
-		
-		
+	
+	# to move block to the right
+	def move_right(self):
+		self.set_position(1, 0)
 		
 		
-print 'hi'
+		
+		
+		
 A = Block((4,5), [0,0])
 print A
 A.set_position(1,2)
-#A.move_right()
+print A
+A.move_right()
 print A
