@@ -27,15 +27,15 @@ class Block:
 	# Method to move block to the right.
 	def move_right(self):
 		self.set_position(1, 0)
-		
+		print 'moved one space to the right' 
 		
 		
 		
 # Code to test the block class.
-#A = Block((4,5), [0,0])
-#print A
-#A.set_position(1,2)
-#print A
-#A.move_right()
-#print A
+A = Block((4,5), [0,0])
+print A
+A.set_position(1,2)
+print A
+A.move_right()
+print A
 #print A.size
