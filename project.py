@@ -4,6 +4,8 @@
 import sys                                  # to parse the input
 from operator import itemgetter, attrgetter	# to sort the tuples
 
+from block_class import *					# to test move block
+
 # This function strips the newline char from each line in the file,
 # and appends each line into a list.
 def strip_file(f):
@@ -74,19 +76,39 @@ def binary_search(dict_list, key, imin, imax):
 			# key has been found
 			return imid;	
 			
-
+# Function to move the block object in certain direction.  Why does tray need to be here?
 def move_block(Tray, Block, Direction):
 	# move the block
 	if (Direction == 'left'):
-		Block.
+		Block.set_position(0,-1)
+		return True
 		
-	if (Direction == 'right'):
-		do
+	elif (Direction == 'right'):
+		Block.set_position(0,1)
+		return True
 	
-	if (Direction == 'up'):
-		do
+	elif (Direction == 'up'):
+		Block.set_position(-1,0)
+		return True
 		
-	if (Direction == 'down'):
-		do
-def free_space(Tray, Block):
+	elif (Direction == 'down'):
+		Block.set_position(1,0)
+		return True
+		
+	else:
+		print 'Invalid Direction.'
+		return False
+		
+
+	
+# Code to test the move_block function.	
+A = Block((1,2), [3,2])
+print A
+placeholder = 0
+move_block(placeholder, A, 'up')
+print A
+move_block(placeholder, A, 'left')
+print A
+		
+#def free_space(Tray, Block):
 	# check to make sure lies inside the boundary of the tray configuration
