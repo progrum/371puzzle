@@ -44,14 +44,47 @@ def create_dictionary(input_list):
 			i = i + 1
 	return (dct)
 	
-	
+"""	
 # Function to sort the list of tuples, by position.
 def create_list(input_dict):
 
 	dict_list = sorted([(value,key) for (key,value) in input_dict.items()])
 	dict_list = [key for (value, key) in dict_list]	
 	return (dict_list)
+"""
+
+# Function to create a list of Block instances from the configuration file.
+def block_list(config_file):
+
+	Block_list = []
+	i = 0
+	for item in config_file:
+		if (i == 0):
+			#Tray_list.append((int(A[i][0]), int(A[i][2])))
+			i = i + 1
+
+		else:
+			Block_list.append(Block((int(config_file[i][0]), int(config_file[i][2])), [int(config_file[i][4]), int(config_file[i][6])]))
+			i = i + 1
+	return (Block_list)
+
+# Function to create a list of the tray config.
+def tray_list(config_file):
+
+	Tray_list = []
+	Tray_list.append((int(A[0][0]), int(A[0][2])))
+	return (Tray_list)
 	
+	
+"""
+blklist = block_list(A)
+trlist = tray_list(A)
+# to check contents of Block_list.
+for blk in blklist:
+	print blk
+print trlist
+"""
+
 
 # Function to perform binary search on sorted list of dictionary keys; sorted by position.
 # NOTE: Augment for finding in dictionary...
@@ -102,7 +135,7 @@ def move_block(Tray, Block, Direction):
 
 	
 # Code to test the move_block function.	
-A = Block((1,2), [3,2])
+"""A = Block((1,2), [3,2])
 print A
 placeholder = 0
 move_block(placeholder, A, 'up')
@@ -112,3 +145,4 @@ print A
 		
 #def free_space(Tray, Block):
 	# check to make sure lies inside the boundary of the tray configuration
+"""

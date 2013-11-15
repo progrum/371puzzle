@@ -32,10 +32,10 @@ class Block:
 		
 		
 # Code to test the block class.
-A = Block((4,5), [0,0])
-print A
-A.set_position(1,2)
-print A
-A.move_right()
-print A
-print A.size
+#A = Block((4,5), [0,0])
+#print A
+#A.set_position(1,2)
+#print A
+#A.move_right()
+#print A
+#print A.size
