@@ -41,10 +41,18 @@ class Tray:
 			
 	# Method to determine...
 	def isFreeSpace(self,blk):
-        
+		upper_row = blk.position[0] + blk.size[0]
+		upper_col = blk.position[1] + blk.size[1]
+		for i in range(blk.position[0], upper_row):
+			for j in range(blk.position[1], upper_col):
+				self.matrix[i][j] = 2
+				
+		return self.matrix
+        """
 		directions = {"right" : 0 , "left" : 0, "up" : 0, "down" : 0}
         # returns direction dictionary that we can move
 		return directions
+		"""
 		
 	# Method to 0 out an index in the matrix.
 	def zero_index(self, index1, index2):
@@ -88,4 +96,8 @@ print '\n'
 B.set_blocks()
 for x in B.matrix:
 	print x
+	
+B.isFreeSpace(A[0])
 
+for x in B.matrix:
+	print x
