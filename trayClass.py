@@ -37,7 +37,15 @@ class Tray:
         
         # returns direction dictionary that we can move
         return directions
+		
+		
+	def map_blocks(self, listOfBlks):
+		for blk in listOfBlks:
+			tray_dict[blk.position] = blk
+		return tray_dict
     
+	
+# To test code
 A = [Block((4,5), [0,0]), Block((5,3), [6,7]), Block((1,1), [9,4])]
 print A[0]
 A[0].set_position(1,2)
@@ -46,4 +54,9 @@ B = Tray([5,10], len(A), A)
 print B
 C = B.isFreeSpace(A[0])
 print C
-
+# Below to print a formatted 3x4 matrix
+D = B.createMatrix(3,4)
+for x in D:
+	print x
+E = B.map_blocks
+print E
