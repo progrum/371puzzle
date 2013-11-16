@@ -75,12 +75,11 @@ def block_list(config_file):
 # Function to create a list of the tray config.
 def tray_list(config_file):
 
-	Tray_list = []
-	Tray_list.append((int(A[0][0]), int(A[0][2])))
+	Tray_list = [int(config_file[0][0]), int(config_file[0][2])]
 	return (Tray_list)
 	
-	
-
+# To test the tray_list function
+A = ['3 4 0 0']
 blklist = block_list(A)
 trlist = tray_list(A)
 # to check contents of Block_list.
