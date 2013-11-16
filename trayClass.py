@@ -40,7 +40,17 @@ class Tray:
         # returns direction dictionary that we can move
 		return directions
 		
+	# Function to 0 out an index in the matrix.
+	def zero_index(self, index1, index2):
+		self.matrix[index1][index2] = 0
+	
+	
+	# Function to set a single block to an index in the matrix
+	def set_block(self, block):
 		
+		self.matrix[block.position[0]][block.position[1]] = block.size
+	
+	
 	# Function to set all the blocks within the matrix.
 	def set_blocks(self):
 
