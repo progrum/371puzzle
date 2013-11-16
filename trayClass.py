@@ -1,3 +1,6 @@
+# Import to test code with block class
+from block_class import *                 
+
 class Tray:
     def __init__(self, size, numOfBlks, listOfBlks ):
         #attributes of a Tray Object
@@ -35,7 +38,12 @@ class Tray:
         # returns direction dictionary that we can move
         return directions
     
-A = Tray([3,3], 2, 2)
-print A
-#A.set_position(1,2)
-#print A
+A = [Block((4,5), [0,0]), Block((5,3), [6,7]), Block((1,1), [9,4])]
+print A[0]
+A[0].set_position(1,2)
+print A[0]
+B = Tray([5,10], len(A), A)
+print B
+C = B.isFreeSpace(A[0])
+print C
+
