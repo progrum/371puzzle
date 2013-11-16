@@ -2,6 +2,8 @@
 from block_class import *                 
 
 class Tray:
+
+	#Constructor to initialize the Tray object.
 	def __init__(self, size, numOfBlks, listOfBlks ):
 	#attributes of a Tray Object
 		self.width = size[1] #getLength(), columns
@@ -11,47 +13,52 @@ class Tray:
 		self.matrix = self.createMatrix(size[0],size[1])
 		self.tray_dict = {}
 		
+	# Method to return the length of the Tray.
 	def length(self):
 		return self.length
 		
+	# Method to return the width of the Tray.
 	def width(self):
 		return self.width
 		
+	# Method to return the number of blocks.
 	def numOfBlks(self):
 		return self.numOfBlks
 		
+	# Method to print out the Tray object.
 	def __str__(self):
 		size_string = str(self.length) +","+ str(self.width)
 		numBlk_string = str(self.numOfBlks)   
 		return 'Size:'+size_string+', NumberOfBlocks '+numBlk_string + str(self.matrix)
         
+		
+	# Method to create the tray as a matrix.
 	def createMatrix(self,length,width):
-		print 'In create Matrix'
 		
 		M = [[0 for i in range(width)] for j in range(length)]
 		self.matrix = M
-		print ('End of create Matrix')
 		return  M
 			
-	# Function to determine.
+	# Method to determine...
 	def isFreeSpace(self,blk):
         
 		directions = {"right" : 0 , "left" : 0, "up" : 0, "down" : 0}
         # returns direction dictionary that we can move
 		return directions
 		
-	# Function to 0 out an index in the matrix.
+	# Method to 0 out an index in the matrix.
 	def zero_index(self, index1, index2):
+	
 		self.matrix[index1][index2] = 0
 	
 	
-	# Function to set a single block to an index in the matrix
+	# Method to set a single block to an index in the matrix
 	def set_block(self, block):
 		
 		self.matrix[block.position[0]][block.position[1]] = block.size
 	
 	
-	# Function to set all the blocks within the matrix.
+	# Method to set all the blocks within the matrix.
 	def set_blocks(self):
 
 		for block in self.listOfBlks:
@@ -59,14 +66,12 @@ class Tray:
 
 		return self.matrix
 	
-	# Function to map the blocks to a dictionary	
+	# Method to map the blocks to a dictionary	
 	def map_blocks(self):
 		
-		print 'in map blocks'
 		for blk in self.listOfBlks:
 			self.tray_dict[blk.position[0],blk.position[1]] = blk
 			
-		print 'out map blocks'
 		return self.tray_dict
     
 	
