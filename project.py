@@ -67,7 +67,11 @@ def block_list(config_file):
 			Block_list.append(Block((int(config_file[i][0]), int(config_file[i][2])), [int(config_file[i][4]), int(config_file[i][6])]))
 			i = i + 1
 	return (Block_list)
-
+	
+# Function to sort the block list by position
+"""def sort_blocks(listOfBlocks):
+	sorted(listOfBlocks, k=itemgetter(
+"""
 # Function to create a list of the tray config.
 def tray_list(config_file):
 
@@ -76,14 +80,14 @@ def tray_list(config_file):
 	return (Tray_list)
 	
 	
-"""
+
 blklist = block_list(A)
 trlist = tray_list(A)
 # to check contents of Block_list.
 for blk in blklist:
 	print blk
 print trlist
-"""
+
 
 
 # Function to perform binary search on sorted list of dictionary keys; sorted by position.
