@@ -39,13 +39,15 @@ class Tray:
 		self.matrix = M
 		return  M
 			
-	# Method to determine...
-	def isFreeSpace(self,blk):
-		upper_row = blk.position[0] + blk.size[0]
-		upper_col = blk.position[1] + blk.size[1]
-		for i in range(blk.position[0], upper_row):
-			for j in range(blk.position[1], upper_col):
-				self.matrix[i][j] = 2
+	# Method to map block area to matrix
+	def map_blocks_area(self):
+	
+		for blk in self.listOfBlks:
+			upper_row = blk.position[0] + blk.size[0]
+			upper_col = blk.position[1] + blk.size[1]
+			for i in range(blk.position[0], upper_row):
+				for j in range(blk.position[1], upper_col):
+					self.matrix[i][j] = blk.size
 				
 		return self.matrix
         """
@@ -71,20 +73,24 @@ class Tray:
 
 		for block in self.listOfBlks:
 			self.matrix[block.position[0]][block.position[1]] = block.size
-
 		return self.matrix
 	
 	# Method to map the blocks to a dictionary	
-	def map_blocks(self):
+	def matrix_dict(self):
 		
-		for blk in self.listOfBlks:
-			self.tray_dict[blk.position[0],blk.position[1]] = blk
-			
+		for entry1 in range(self.length):
+			for entry2 in range(self.width):
+				self.tray_dict[(entry1,entry2)] = 0
+				
+		for item in self.tray_dict:
+			for block in self.listOfBlks:
+				if ((item[0] == block.position[0])& (item[1] == block.position[1])):
+					self.tray_dict[block.position[0],block.position[1]] = block	
 		return self.tray_dict
     
 	
 # To test code
-A = [Block((4,5), [0,0]), Block((5,3), [1,2]), Block((1,1), [2,0])]
+A = [Block((4,5), [0,0]), Block((1,3), [1,2]), Block((1,1), [2,0])]
 #print A[0]
 #A[0].set_position(1,2)
 #print A[0]
@@ -93,11 +99,15 @@ for x in B.matrix:
 	print x
 	
 print '\n'
+"""
 B.set_blocks()
 for x in B.matrix:
 	print x
 	
-B.isFreeSpace(A[0])
+B.map_blocks_area()
 
 for x in B.matrix:
 	print x
+"""
+R = B.matrix_dict()
+print R.values()
