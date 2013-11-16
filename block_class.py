@@ -5,7 +5,7 @@ class Block:
 	def __init__(self, size, position):
 		self.size = size
 		self.position = position
-		self.log = []
+		self.log = [position]
 		
 	# Method to return the position of the block.
 	def block_position(self):
@@ -29,11 +29,12 @@ class Block:
 	def move_right(self):
 		self.set_position(1, 0)
 		print 'moved one space to the right' 
+		self.log_move(self.position)
 		
 	# Method to log movements of block.
 	def log_move(self, movement):
-		log.append(movement)
-		return log
+		self.log.append(movement)
+		return self.log
 		
 		
 # Code to test the block class.
@@ -41,6 +42,8 @@ A = Block((4,5), [0,0])
 print A
 A.set_position(1,2)
 print A
+print A.log
 A.move_right()
 print A
 #print A.size
+print A.log
