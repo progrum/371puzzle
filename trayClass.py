@@ -8,7 +8,7 @@ class Tray:
 		self.length = size[0]   #getWidth(), rows 
 		self.numOfBlks = numOfBlks
 		self.listOfBlks = listOfBlks  #new: getList of block objects
-		self.matrix = self.createMatrix(size[1],size[0])
+		self.matrix = self.createMatrix(size[0],size[1])
 		self.tray_dict = {}
 		
 	def length(self):
@@ -41,10 +41,13 @@ class Tray:
 		return directions
 		
 		
-	# Function to set the block size into the matrix
-	def set_blocks(self, block):
-		self.matrix[block.position[0]][block.position[1]] = block.size
-		print self.matrix
+	# Function to set all the blocks within the matrix.
+	def set_blocks(self):
+
+		for block in self.listOfBlks:
+			self.matrix[block.position[0]][block.position[1]] = block.size
+
+		return self.matrix
 	
 	# Function to map the blocks to a dictionary	
 	def map_blocks(self):
@@ -58,39 +61,16 @@ class Tray:
     
 	
 # To test code
-A = [Block((4,5), [0,0]), Block((5,3), [6,7]), Block((1,1), [9,4])]
-print A[0]
-A[0].set_position(1,2)
-print A[0]
+A = [Block((4,5), [0,0]), Block((5,3), [1,2]), Block((1,1), [2,0])]
+#print A[0]
+#A[0].set_position(1,2)
+#print A[0]
 B = Tray([5,10], len(A), A)
-print B
-
-C = B.isFreeSpace(A[0])
-print C
-# Below to print a formatted 3x4 matrix
-D = B.createMatrix(3,4)
-for x in D:
-	print x
-
-print B.listOfBlks[0].position
-F = B.map_blocks()
-print F
-
-G = B.set_block(A[0])
-print G
-R = B.set_block(Block((1,1),[2,2]))
-print R
 for x in B.matrix:
 	print x
-"""
-tray_dict = {}
-for blk in B.listOfBlks:
-	tray_dict[(blk.position[0],blk.position[1])] = blk
-print tray_dict
-"""
-"""
-A = Tray([5,5], 1, [(4,5),[1,1]])
-print A
-print A.isFreeSpace(((4,3),[0,0]))
-A.map_blocks()
-"""
+	
+print '\n'
+B.set_blocks()
+for x in B.matrix:
+	print x
+
