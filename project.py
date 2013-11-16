@@ -26,33 +26,6 @@ def op_file(a_file):
     return (str_file)
 
 
-# function to create a dictionary to store blocks; 
-# keys are the size and unique id; values are the current positions.
-def create_dictionary(input_list):
-
-	dct = {}
-	i = 0
-	id = 0
-	for item in input_list:
-		if i != 0:
-			tup = (int(item[0]), int(item[2]), id)
-			val = (int(item[4]), int(item[6]))
-			dct[tup] = val
-			id = id + 1
-	
-		else:
-			i = i + 1
-	return (dct)
-	
-"""	
-# Function to sort the list of tuples, by position.
-def create_list(input_dict):
-
-	dict_list = sorted([(value,key) for (key,value) in input_dict.items()])
-	dict_list = [key for (value, key) in dict_list]	
-	return (dict_list)
-"""
-
 # Function to create a list of Block instances from the configuration file.
 def block_list(config_file):
 
