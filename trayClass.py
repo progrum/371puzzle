@@ -23,7 +23,8 @@ class Tray:
         
     def createMatrix(self,width,length):
         print 'In create Matrix'
-        M = [[[i] for i in range(width)] for j in range(length)]
+		# Update: initiated matrix to zero, and rearranged the loop.
+        M = [[0 for i in range(length)] for j in range(width)]
         print ('End of create Matrix')
         return  M
          
