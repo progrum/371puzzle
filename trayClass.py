@@ -9,6 +9,7 @@ class Tray:
 		self.numOfBlks = numOfBlks
 		self.listOfBlks = listOfBlks  #new: getList of block objects
 		self.matrix = self.createMatrix(size[1],size[0])
+		self.tray_dict = {}
 		
 	def length(self):
 		return self.length
@@ -26,8 +27,9 @@ class Tray:
         
 	def createMatrix(self,length,width):
 		print 'In create Matrix'
-		# Update: initiated matrix to zero, and rearranged the loop.
+		
 		M = [[0 for i in range(width)] for j in range(length)]
+		self.matrix = M
 		print ('End of create Matrix')
 		return  M
 			
@@ -38,15 +40,21 @@ class Tray:
         # returns direction dictionary that we can move
 		return directions
 		
+		
+	# Function to set the block size into the matrix
+	def set_blocks(self, block):
+		self.matrix[block.position[0]][block.position[1]] = block.size
+		print self.matrix
+	
 	# Function to map the blocks to a dictionary	
 	def map_blocks(self):
 		
-		tray_dict = {}
 		print 'in map blocks'
 		for blk in self.listOfBlks:
-			tray_dict[(blk.position[0],blk.position[1])] = blk
+			self.tray_dict[blk.position[0],blk.position[1]] = blk
+			
 		print 'out map blocks'
-		return tray_dict
+		return self.tray_dict
     
 	
 # To test code
@@ -67,6 +75,13 @@ for x in D:
 print B.listOfBlks[0].position
 F = B.map_blocks()
 print F
+
+G = B.set_block(A[0])
+print G
+R = B.set_block(Block((1,1),[2,2]))
+print R
+for x in B.matrix:
+	print x
 """
 tray_dict = {}
 for blk in B.listOfBlks:
