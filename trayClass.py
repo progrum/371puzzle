@@ -68,15 +68,7 @@ class Tray:
 					self.matrix[i][j] = blk.size
 				
 		return self.matrix
-
 		
-		
-	# Method to 0 out an index in the matrix.
-	def zero_index(self, index1, index2):
-	
-		self.matrix[index1][index2] = 0
-		
-	
 	
 	# Method to set a single block to an index in the matrix
 	def set_block(self, block):
