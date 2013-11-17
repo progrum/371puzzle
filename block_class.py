@@ -27,16 +27,39 @@ class Block:
 	
 	# Method to move block to the right.
 	def move_right(self):
-		self.set_position(1, 0)
+		self.set_position(0, 1)
 		print 'moved one space to the right' 
 		self.log_move(self.position)
 		
+	# Method to move block to the left.
+	def move_left(self):
+		self.set_position(0, -1)
+		print 'moved one space to the left' 
+		self.log_move(self.position)
+		
+	# Method to move block up.
+	def move_up(self):
+		self.set_position(-1, 0)
+		print 'moved one space up' 
+		self.log_move(self.position)	
+		
+	# Method to move block down.
+	def move_down(self):
+		self.set_position(1, 0)
+		print 'moved one space down' 
+		self.log_move(self.position)
+
+	
 	# Method to log movements of block.
 	def log_move(self, movement):
 		self.log.append(movement)
 		return self.log
 		
 		
+
+		
+		
+"""
 # Code to test the block class.
 A = Block((4,5), [0,0])
 print A
@@ -47,3 +70,4 @@ A.move_right()
 print A
 #print A.size
 print A.log
+"""

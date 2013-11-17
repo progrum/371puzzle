@@ -50,7 +50,7 @@ def tray_list(config_file):
 
 	Tray_list = [int(config_file[0][0]), int(config_file[0][2])]
 	return (Tray_list)
-	
+"""	
 # To test the tray_list function
 A = ['3 4 0 0']
 blklist = block_list(A)
@@ -59,7 +59,7 @@ trlist = tray_list(A)
 for blk in blklist:
 	print blk
 print trlist
-
+"""
 
 
 # Function to perform binary search on sorted list of dictionary keys; sorted by position.
@@ -84,32 +84,15 @@ def binary_search(dict_list, key, imin, imax):
 		else:
 			# key has been found
 			return imid;	
-			
-# Function to move the block object in certain direction.  Why does tray need to be here?
-def move_block(Tray, Block, Direction):
-	# move the block
-	if (Direction == 'left'):
-		Block.set_position(0,-1)
-		return True
 		
-	elif (Direction == 'right'):
-		Block.set_position(0,1)
-		return True
+# Function to perform algorithm on blocks
+#def algorithm():
+# Need to perform DFS, categorize possible moves, choose move based on goal position.
 	
-	elif (Direction == 'up'):
-		Block.set_position(-1,0)
-		return True
 		
-	elif (Direction == 'down'):
-		Block.set_position(1,0)
-		return True
 		
-	else:
-		print 'Invalid Direction.'
-		return False
 		
 
-	
 # Code to test the move_block function.	
 """A = Block((1,2), [3,2])
 print A

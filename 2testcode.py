@@ -15,27 +15,39 @@ gofile = str(sys.argv[3])
 A = op_file(confile)
 B = op_file(gofile)
 
-print A
+# creating block objects and getting tray dimensions
+C = block_list(A)
+D = tray_list(A)
 
-# Tray((A[0][0],A[0][2]), ListOfBlocks, numofblocks)
-# Block class gets A[1:]; list of strings of input from file
-# Tray class gets A[0]; tray size (row column)
+# tray initiation
+E = Tray(D, len(C), C)
+for x in E.matrix:
+	print x
+
+
+# maps the blocks according to size to the matrix
+G = E.map_blocks_area()
+for x in G:
+	print x
+
+
+# to move the block
+for x in E.listOfBlks:
+	print x
+
+E.listOfBlks[2].move_right()
+for x in E.listOfBlks:
+	print x
+
+T = E.getblock(1,1)
+print T
+
+# now need to update the tray
+R = E.tray_update(E.listOfBlks[2])
+for x in R:
+	print x
 
 	
-	
-#block_dictionary = create_dictionary(A)
-#block_list = create_list(block_dictionary)
-#print block_dictionary
-#print block_list
-
-
-
-# This code works, used to list the block instances.
-#OBblock_list = [Block((1,1),[0,0]), Block((2,3),[11,3]), Block((4,2),[5,4])]
-#for blk in OBblock_list:
-#	print blk
-#print 'ob: ', OBblock_list[0]
-#print A[0][2]
-#C = Tray((int(A[0][0]),int(A[0][2])), len(OBblock_list), OBblock_list)
-#print C.size()
+print 'This is the goal file output.'
+print B
 
