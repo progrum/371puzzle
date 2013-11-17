@@ -50,11 +50,8 @@ class Tray:
 					self.matrix[i][j] = blk.size
 				
 		return self.matrix
-        """
-		directions = {"right" : 0 , "left" : 0, "up" : 0, "down" : 0}
-        # returns direction dictionary that we can move
-		return directions
-		"""
+
+		
 		
 	# Method to 0 out an index in the matrix.
 	def zero_index(self, index1, index2):
@@ -75,13 +72,17 @@ class Tray:
 			self.matrix[block.position[0]][block.position[1]] = block.size
 		return self.matrix
 	
-	# Method to map the blocks to a dictionary	
-	def matrix_dict(self):
+	# Method to initialize the tray dictionary.	
+	def init_matrix_dict(self):
 		
 		for entry1 in range(self.length):
 			for entry2 in range(self.width):
 				self.tray_dict[(entry1,entry2)] = 0
-				
+		return self.tray_dict
+	
+	# Method to map the blocks to the tray dictionary.
+	def set_matrix_dict(self):
+	
 		for item in self.tray_dict:
 			for block in self.listOfBlks:
 				if ((item[0] == block.position[0])& (item[1] == block.position[1])):
@@ -89,25 +90,26 @@ class Tray:
 		return self.tray_dict
     
 	
+	# Method to update dictionary and matrix when the block moves.
+	def tray_update(self, block):
+		
+		# to update the dictionary
+		self.tray_dict[block.position[0],block.position[1]] = block
+		
+		# to update the matrix
+		createMatrix(self.length,self.width)
+		self.map_blocks_area()
+	
+	
 # To test code
 A = [Block((4,5), [0,0]), Block((1,3), [1,2]), Block((1,1), [2,0])]
 #print A[0]
 #A[0].set_position(1,2)
 #print A[0]
 B = Tray([5,10], len(A), A)
-for x in B.matrix:
-	print x
-	
-print '\n'
-"""
-B.set_blocks()
-for x in B.matrix:
-	print x
-	
-B.map_blocks_area()
+A[0].set_position(1,1)
 
-for x in B.matrix:
+for x in B.listOfBlks:
 	print x
-"""
-R = B.matrix_dict()
-print R.values()
+	
+
