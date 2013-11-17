@@ -5,12 +5,14 @@ class Tray:
 
 	#Constructor to initialize the Tray object.
 	def __init__(self, size, numOfBlks, listOfBlks ):
+	
 	#attributes of a Tray Object
 		self.width = size[1] #getLength(), columns
 		self.length = size[0]   #getWidth(), rows 
 		self.numOfBlks = numOfBlks
 		self.listOfBlks = listOfBlks  #new: getList of block objects
 		self.matrix = self.createMatrix(size[0],size[1])
+		self.tray_dict = {}
 		
 		
 	# Method to return the length of the Tray.
@@ -44,6 +46,16 @@ class Tray:
 		self.matrix = M
 		return  self.matrix
 		
+		
+	# Method to initialize the tray dictionary.	
+	def init_matrix_dict(self):
+		
+		for entry1 in range(self.length):
+			for entry2 in range(self.width):
+				self.tray_dict[(entry1,entry2)] = 0
+		return self.tray_dict	
+	
+		
 			
 	# Method to map block area to matrix
 	def map_blocks_area(self):
@@ -75,11 +87,15 @@ class Tray:
 	# Method to update dictionary and matrix when the block moves.
 	def tray_update(self, block):
 		
-		# to update the dictionary
-		#self.tray_dict[block.position[0],block.position[1]] = block
-		
 		# to update the matrix
 		self.matrix = self.createMatrix(self.length,self.width)
 		self.matrix = self.map_blocks_area()
+		
+		# to update the dictionary
+		for item in self.tray_dict:
+			for block in self.listOfBlks:
+				if ((item[0] == block.position[0])& (item[1] == block.position[1])):
+					self.tray_dict[block.position[0],block.position[1]] = block
+					
 		return self.matrix
 

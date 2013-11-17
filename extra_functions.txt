@@ -7,22 +7,10 @@ Functions that may not be needed.
 			self.matrix[block.position[0]][block.position[1]] = block.size
 		return self.matrix
 		
-		# Method to initialize the tray dictionary.	
-	def init_matrix_dict(self):
 		
-		for entry1 in range(self.length):
-			for entry2 in range(self.width):
-				self.tray_dict[(entry1,entry2)] = 0
-		return self.tray_dict
+
+		
+	# Method to 0 out an index in the matrix.
+	def zero_index(self, index1, index2):
 	
-	# Method to map the blocks to the tray dictionary.
-	def set_matrix_dict(self):
-	
-		for item in self.tray_dict:
-			for block in self.listOfBlks:
-				if ((item[0] == block.position[0])& (item[1] == block.position[1])):
-					self.tray_dict[block.position[0],block.position[1]] = block	
-		return self.tray_dict
-		
-		
-	self.tray_dict = {}
+		self.matrix[index1][index2] = 0
