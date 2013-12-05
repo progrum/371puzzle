@@ -1,10 +1,11 @@
 # Authors: Robert Banks and Eugene Mammie
 
-
+import networkx as nx
 import sys                                  # to parse the input
 from operator import itemgetter, attrgetter	# to sort the tuples
-
 from block_class import *					# to test move block
+
+G = nx.Graph()
 
 # This function strips the newline char from each line in the file,
 # and appends each line into a list.
@@ -41,67 +42,30 @@ def block_list(config_file):
 			i = i + 1
 	return (Block_list)
 	
-# Function to sort the block list by position
-"""def sort_blocks(listOfBlocks):
-	sorted(listOfBlocks, k=itemgetter(
-"""
+
 # Function to create a list of the tray config.
 def tray_list(config_file):
 
 	Tray_list = [int(config_file[0][0]), int(config_file[0][2])]
 	return (Tray_list)
-"""	
-# To test the tray_list function
-A = ['3 4 0 0']
-blklist = block_list(A)
-trlist = tray_list(A)
-# to check contents of Block_list.
-for blk in blklist:
-	print blk
-print trlist
-"""
 
-
-# Function to perform binary search on sorted list of dictionary keys; sorted by position.
-# NOTE: Augment for finding in dictionary...
-def binary_search(dict_list, key, imin, imax):
-
-	# test if array is empty
-	if (imax < imin):
-		# set is empty, so return value showing not found
-		return (False)
-	else:
-		# calculate midpoint to cut set in half
-		imid = (imin + imax) / 2;
- 
-		# three-way comparison
-		if (A[imid] > key):
-			# key is in lower subset
-			return binary_search(A, key, imin, imid-1);
-		elif (A[imid] < key):
-			# key is in upper subset
-			return binary_search(A, key, imid+1, imax);
-		else:
-			# key has been found
-			return imid;	
-		
-# Function to perform algorithm on blocks
-#def algorithm():
-# Need to perform DFS, categorize possible moves, choose move based on goal position.
 	
-		
-		
-		
-
-# Code to test the move_block function.	
-"""A = Block((1,2), [3,2])
-print A
-placeholder = 0
-move_block(placeholder, A, 'up')
-print A
-move_block(placeholder, A, 'left')
-print A
-		
-#def free_space(Tray, Block):
-	# check to make sure lies inside the boundary of the tray configuration
-"""
+# Function to test around a block
+def move_generator(block):
+	
+	E.down_free_space(block)
+	E.up_free_space(block)
+	E.left_free_space(block)
+	E.right_free_space(block)
+	return block.moves
+	
+	
+# Function to generate the graph, not complete
+def Build_Graph(Tray):
+	Tray.set_blocks()
+	G.add_node(Tray)
+	
+	for block in Tray.listOfBlks:
+		move_generator(block)
+	for block in Tray.listOfBlks:
+		block.legal_moves()

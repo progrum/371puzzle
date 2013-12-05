@@ -21,7 +21,7 @@ D = tray_list(A)
 
 # tray initiation
 E = Tray(D, len(C), C)
-for x in E.matrix:
+for x in E.get_list():
 	print x
 
 
