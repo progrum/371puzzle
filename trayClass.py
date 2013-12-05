@@ -69,9 +69,9 @@ class Tray:
 	def left_free_space(self, block):
 
 		left_col = block.position[1] - 1
-		blk_range = block.position[0] + block.size[0]
+		blk_range = block.position[0] + block.size[0]		# row block range
 		
-		if (blk_range > self.width):
+		if (blk_range > self.length):
 			block.all_moves('left', False)
 			return False
 
@@ -98,7 +98,7 @@ class Tray:
 		right_col = block.position[1] + 1
 		blk_range = block.position[0] + block.size[0]
 		
-		if (blk_range > self.width):
+		if (blk_range > self.length):
 			block.all_moves('right', False)
 			return False
 		
@@ -124,7 +124,7 @@ class Tray:
 		blk_range = block.position[1] + block.size[1]
 		
 		
-		if (blk_range > self.length):
+		if (blk_range > self.width):
 			block.all_moves('up', False)
 			return False
 		
@@ -149,7 +149,7 @@ class Tray:
 		down_row = block.position[0] + 1
 		blk_range = block.position[1] + block.size[1]
 		
-		if (blk_range > self.length):
+		if (blk_range > self.width):
 			block.all_moves('down', False)
 			return False
 		
