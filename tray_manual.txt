@@ -1,0 +1,40 @@
+Tray Object
+
+Tray Object takes in arguments (in this order): 
+	size (a list from the input file, [length,width])
+	number of blocks (length of the block list)
+	list of blocks (a list of block objects from the input file)
+	goal (a dictionary, key: size of block (tuple), value: position of block (list))
+	
+The Tray is called with these arguments, now to initialize Tray object for use:
+	
+	- First, when Tray instance is created, a dictionary is initialized to hold every position
+		in the Tray instance configuration size.
+	
+	- Next, a helper function called setup, enables the Tray Object to handle block moves
+		and query information about possible block moves. The function setup takes one
+		argument: a Tray object; example- setup(Tray_object). Inside of setup are a number
+		of functions to do this; set_blocks(), no parameter needed, a Tray method to set the
+		Block objects in the initialized dictionary based on the Block objects current position
+		and area. move_generator(Block_object) is a helper function (parameters: Tray_object 
+		and Block object that calls four functions, left_free_space, right_free_space, up_free_space,
+		and down_free_space which all need a Block object as their parameter, to use the dictionary
+		to check around a Block for free space, and generates a list of all possible moves from 
+		all the Block Objects.
+		
+The Algorithms' use of the Tray Object (still in the process):
+	
+	- A Tray object is created from the files given to the program.
+	
+	- The Tray object is then initialized and setup, a list of all possible moves from the starting
+		configuration are made and inserted into a queue.
+		
+	- One-by-one Tray instances are then made, only differing from the Tray Configuration it started
+		from by one move.
+		
+	- At each interval, the Tray instance should be compared to the goal configuration of the Tray Object
+		as well.
+		
+	- This cycle repeats until a solution is found.
+	
+		
