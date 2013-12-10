@@ -17,6 +17,10 @@ class Block:
 	def block_size(self):
 		return self.size
 		
+	# Method to return the size and current position of a block.
+	def block_status(self):
+		return tuple(self.size, self.position)
+		
 	# Str method for the block object.
 	def __str__(self):
 		size_string = str(self.size)
@@ -40,25 +44,25 @@ class Block:
 	def move_block(self, direction):
 		if (direction == 'down'):
 			self.set_position(1, 0)
-			print self, 'moved one space down' 
+			#print self, 'moved one space down' 
 			self.log_move(self.position)
 			return True
 			
 		elif (direction == 'up'):
 			self.set_position(-1, 0)
-			print self, 'moved one space up' 
+			#print self, 'moved one space up' 
 			self.log_move(self.position)
 			return True
 			
 		elif (direction == 'left'):
 			self.set_position(0, -1)
-			print self, 'moved one space to the left' 
+			#print self, 'moved one space to the left' 
 			self.log_move(self.position)
 			return True
 			
 		elif (direction == 'right'):
 			self.set_position(0, 1)
-			print self, 'moved one space to the right' 
+			#print self, 'moved one space to the right' 
 			self.log_move(self.position)
 			return True
 		else:

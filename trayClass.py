@@ -5,15 +5,14 @@ from operator import itemgetter, attrgetter
 class Tray:
 
 	#Constructor to initialize the Tray object.
-	def __init__(self, size, numOfBlks, listOfBlks, goal):
+	def __init__(self, size, listOfBlks):
 		self.tray_dict = {}
 	#attributes of a Tray Object
 		self.width = size[1] #getLength(), columns
 		self.length = size[0]   #getWidth(), rows 
-		self.numOfBlks = numOfBlks
 		self.listOfBlks = listOfBlks  # getList of block objects
 		self.tray_dict = self.init_dict()
-		self.tray_goal = goal			#new: to keep goal inside of tray instance
+		#self.tray_goal = goal	
 		self.legal_list = []			#new: keeps a list of all possible moves; priority queue goes here i think
 		
 		
@@ -25,19 +24,15 @@ class Tray:
 	def width(self):
 		return self.width
 		
-	# Method to return the number of blocks.
-	def numOfBlks(self):
-		return self.numOfBlks
 		
 	# Method to return the goal configuration
-	def goal_config(self):
-		return self.tray_goal
+	#def goal_config(self):
+	#	return self.tray_goal
 		
 	# Method to print out the Tray object.
 	def __str__(self):
-		size_string = str(self.length) +","+ str(self.width)
-		numBlk_string = str(self.numOfBlks)   
-		return 'Size:'+size_string+'\nNumberOfBlocks: '+numBlk_string +'\n'+ str(self.tray_dict)
+		size_string = str(self.length) +","+ str(self.width) 
+		return 'Size:'+size_string+'\n'+ str(self.tray_dict)  #removed for testing may need again.
         
 		
 	# Method to return value of a given index.
@@ -62,7 +57,7 @@ class Tray:
 	def	set_blocks(self):
 		
 		for block in self.listOfBlks:
-			self.tray_dict[block.position[0],block.position[1]] = block
+			self.tray_dict[block.position[0],block.position[1]] = block.size
 
 
 	# Method to determine if there is a left free space.
@@ -188,18 +183,4 @@ class Tray:
 	def	__eq__(self,other):
 		return self.tray_dict == other
 			 
-	
-	"""	
-	# Function to pop the self.legal_list	
-	def Dequeue(self):
-                
-		head = 0
-		x = self.legal_list[head]
-		self.legal_list.pop(head)
-		return x
-		
-	# Function to put key value on the queue.
-	def Enqueue(self,x):
-                
-		self.legal_list.append(x)
-	"""	
+
